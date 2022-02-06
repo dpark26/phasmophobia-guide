@@ -3,27 +3,27 @@ from Button import Button
 
 class Ghosts:
 	def __init__(self):
-		self.banshee = Button((255, 178, 102), 0, 0, "BANSHEE")
-		self.demon = Button((255, 178, 102), 0, 130, "DEMON")
-		self.goryo = Button((255, 178, 102), 0, 260, "GORYO")
-		self.hantu = Button((255, 178, 102), 0, 390, "HANTU")
-		self.jinn = Button((255, 178, 102), 0, 520, "JINN")
-		self.mare = Button((255, 178, 102), 0, 650, "MARE") 
-		self.myling = Button((255, 178, 102), 0, 780, "MYLING")
-		self.obake = Button((255, 178, 102), 200, 0, "OBAKE")
-		self.oni = Button((255, 178, 102), 200, 130, "ONI")
-		self.onryo = Button((255, 178, 102), 200, 260, "ONRYO")
-		self.phantom = Button((255, 178, 102), 200, 390, "PHANTOM")
-		self.polter = Button((255, 178, 102), 200, 520, "POLTERGEIST")
-		self.raiju = Button((255, 178, 102), 200, 650, "RAIJU")
-		self.rev = Button((255, 178, 102), 200, 780, "REVENANT")
-		self.shade = Button((255, 178, 102), 400, 0, "SHADE")
-		self.spirit = Button((255, 178, 102), 400, 130, "SPIRIT")
-		self.mimic = Button((255, 178, 102), 400, 260, "THE MIMIC")
-		self.twins = Button((255, 178, 102), 400, 390, "THE TWINS")
-		self.wraith = Button((255, 178, 102), 400, 520, "WRAITH")
-		self.yokai = Button((255, 178, 102), 400, 650, "YOKAI")
-		self.yurei = Button((255, 178, 102), 400, 780, "YUREI")
+		self.spirit = Button((255, 178, 102), 0, 0, 200, 130, "SPIRIT")
+		self.polter = Button((255, 178, 102), 0, 130, 200, 130, "POLTERGEIST")
+		self.mare = Button((255, 178, 102), 0, 260, 200, 130, "MARE")
+		self.demon = Button((255, 178, 102), 0, 390, 200, 130, "DEMON")
+		self.yokai = Button((255, 178, 102), 0, 520, 200, 130, "YOKAI")
+		self.myling = Button((255, 178, 102), 0, 650, 200, 130, "MYLING") 
+		self.raiju = Button((255, 178, 102), 0, 780, 200, 130, "RAIJU")
+		self.wraith = Button((255, 178, 102), 200, 0, 200, 130, "WRAITH")
+		self.banshee = Button((255, 178, 102), 200, 130, 200, 130, "BANSHEE")
+		self.rev = Button((255, 178, 102), 200, 260, 200, 130, "REVENANT")
+		self.yurei = Button((255, 178, 102), 200, 390, 200, 130, "YUREI")
+		self.hantu = Button((255, 178, 102), 200, 520, 200, 130, "HANTU")
+		self.onryo = Button((255, 178, 102), 200, 650, 200, 130, "ONRYO")
+		self.obake = Button((255, 178, 102), 200, 780, 200, 130, "OBAKE")
+		self.phantom = Button((255, 178, 102), 400, 0, 200, 130, "PHANTOM")
+		self.jinn = Button((255, 178, 102), 400, 130, 200, 130, "JINN")
+		self.shade = Button((255, 178, 102), 400, 260, 200, 130, "SHADE")
+		self.oni = Button((255, 178, 102), 400, 390, 200, 130, "ONI")
+		self.goryo = Button((255, 178, 102), 400, 520, 200, 130, "GORYO")
+		self.twins = Button((255, 178, 102), 400, 650, 200, 130, "THE TWINS")
+		self.mimic = Button((255, 178, 102), 400, 780, 200, 130, "THE MIMIC")
 
 		self.bansheeInfo = [
 			"Banshee",
@@ -33,6 +33,7 @@ class Ghosts:
 			"   - Will be a normal ghost if its target leaves",
 			"     the place",
 			"   - Crucifix has a greater range",
+			"   - Prefers to do singing ghost events",
 			" ",
 			" ",
 			"Evidence:",
@@ -45,13 +46,17 @@ class Ghosts:
 			"Demon",
 			" ",
 			"Ways To Test:",
-			"   - ",
+			"   - Can hunt at 70 sanity unless it has the",
+			"   - Banshee ability where it can hunt at 100",
+			"   - Hunts more than other ghosts",
+			"   - 20 second cooldown for hunts without smudging",
+			"   - 60 second cooldown for hunts after smudging",
 			" ",
 			" ",
 			"Evidence:",
-			"   - ",
-			"   - ",
-			"   - "
+			"   - Fingerprints",
+			"   - Ghost Writing",
+			"   - Freezing Temperatures"
 		]
 
 		self.goryoInfo = [
@@ -85,7 +90,7 @@ class Ghosts:
 			"Evidence:",
 			"   - Fingerprints",
 			"   - Ghost Orb",
-			"   - Freezing Temperature"
+			"   - Freezing Temperatures"
 		]
 
 		self.jinnInfo = [
@@ -103,21 +108,23 @@ class Ghosts:
 			"Evidence:",
 			"   - EMF Level 5",
 			"   - Fingerprints",
-			"   - Freezing Temperature"
+			"   - Freezing Temperatures"
 		]
 
 		self.mareInfo = [
 			"Mare",
 			" ",
 			"Ways To Test:",
-			"   - Cannot turn lights off",
+			"   - Can turn lights off, not on",
 			"   - Can hunt at 60 sanity if light is off, 40 if on",
+			"   - Prefers to do light exploding ghost events",
+			"   - May roam further if the light is on in the room",
 			" ",
 			" ",
 			"Evidence:",
-			"   - ",
-			"   - ",
-			"   - "
+			"   - Spirit Box",
+			"   - Ghost Orb",
+			"   - Ghost Writing"
 		]
 
 		self.mylingInfo = [
@@ -139,26 +146,32 @@ class Ghosts:
 			"Obake",
 			" ",
 			"Ways To Test:",
-			"   - ",
+			"   - Chance to not leave fingerprints",
+			"   - May show 6 fingers in the fingerprint",
+			"   - Fingerprints can disappear quickly",
+			"	- Always has fingerprints",
 			" ",
 			" ",
 			"Evidence:",
-			"   - ",
-			"   - ",
-			"   - "
+			"   - EMF Level 5",
+			"   - Fingerprints",
+			"   - Ghost Orb"
 		]
 
 		self.oniInfo = [
 			"Oni",
 			" ",
 			"Ways To Test:",
-			"   - ",
+			"   - More interactions and ghost events",
+			"   - Throws objects further and faster",
+			"   - Prefers physical form ghost events",
+			"   - Never does the airball ghost event",
 			" ",
 			" ",
 			"Evidence:",
-			"   - ",
-			"   - ",
-			"   - "
+			"   - EMF Level 5",
+			"   - Freezing Temperatures",
+			"   - D.O.T.S Projector"
 		]
 
 		self.onryoInfo = [
@@ -177,7 +190,7 @@ class Ghosts:
 			"Evidence:",
 			"   - Spirit Box",
 			"   - Ghost Orb",
-			"   - Freezing Temperature"
+			"   - Freezing Temperatures"
 		]
 
 		self.phantomInfo = [
@@ -218,39 +231,45 @@ class Ghosts:
 			"Raiju",
 			" ",
 			"Ways To Test:",
-			"   - ",
+			"   - Can hunt at 65 sanity if electronic equipment",
+			"     are nearby",
+			"   - Faster if electronic equipment are nearby",
 			" ",
 			" ",
 			"Evidence:",
-			"   - ",
-			"   - ",
-			"   - "
+			"   - EMF Level 5",
+			"   - Ghost Orb",
+			"   - D.O.T.S Projector"
 		]
 
 		self.revInfo = [
 			"Revenant",
 			" ",
 			"Ways To Test:",
-			"   - ",
+			"   - Fastest ghost when in line of sight",
+			"   - Very slow when not chasing a player",
 			" ",
 			" ",
 			"Evidence:",
-			"   - ",
-			"   - ",
-			"   - "
+			"   - Ghost Orb",
+			"   - Ghost Writing",
+			"   - Freezing Temperatures"
 		]
 
 		self.shadeInfo = [
 			"Shade",
 			" ",
 			"Ways To Test:",
-			"   - ",
+			"   - Can only hunt at 35 sanity",
+			"   - Prefers to do airball or shadow ghost events",
+			"   - Can never hunt when multiple people are",
+			"   - nearby the ghost",
 			" ",
 			" ",
 			"Evidence:",
-			"   - ",
-			"   - ",
-			"   - "
+			"   - EMF Level 5",
+			"   - Ghost Writing",
+			"   - Freezing Temperatures"
 		]
 
 		self.spiritInfo = [
@@ -270,13 +289,13 @@ class Ghosts:
 			"The Mimic",
 			" ",
 			"Ways To Test:",
-			"   - ",
+			"   - Mimics one ghost and its abilities at a time",
 			" ",
 			" ",
 			"Evidence:",
-			"   - ",
-			"   - ",
-			"   - "
+			"   - Spirit Box",
+			"   - Fingerprints",
+			"   - Freezing Temperatures"
 		]
 
 		self.twinsInfo = [
@@ -296,7 +315,7 @@ class Ghosts:
 			"Evidence:",
 			"   - EMF Level 5",
 			"   - Spirit Box",
-			"   - Freezing Temperature"
+			"   - Freezing Temperatures"
 		]
 
 		self.wraithInfo = [
@@ -335,61 +354,215 @@ class Ghosts:
 			"Yurei",
 			" ",
 			"Ways To Test:",
-			"   - ",
+			"   - Chance to drop 13 sanity and fully close",
+			"     a door nearby",
+			"   - Cannot leave the room after smudging",
 			" ",
 			" ",
 			"Evidence:",
-			"   - ",
-			"   - ",
-			"   - "
+			"   - Ghost Orb",
+			"   - Freezing Temperatures",
+			"   - D.O.T.S Projector"
 		]
+
+		self.spiritEvid = [
+			"box",
+			"emf",
+			"writing"
+		]
+
+		self.polterEvid = [
+			"box",
+			"finger",
+			"writing"
+		]
+
+		self.mareEvid = [
+			"box",
+			"orb",
+			"writing"
+		]
+
+		self.demonEvid = [
+			"finger",
+			"writing",
+			"freezing"
+		]
+
+		self.yokaiEvid = [
+			"box",
+			"orb",
+			"dots"
+		]
+
+		self.mylingEvid = [
+			"emf",
+			"finger",
+			"writing"
+		]
+
+		self.raijuEvid = [
+			"emf",
+			"orb",
+			"dots"
+		]
+
+		self.wraithEvid = [
+			"emf",
+			"box",
+			"dots"
+		]
+
+		self.bansheeEvid = [
+			"finger",
+			"orb",
+			"dots"
+		]
+
+		self.revEvid = [
+			"orb",
+			"writing",
+			"freezing"
+		]
+
+		self.yureiEvid = [
+			"orb",
+			"freezing",
+			"dots"
+		]
+
+		self.hantuEvid = [
+			"finger",
+			"orb",
+			"freezing"
+		]
+
+		self.onryoEvid = [
+			"box",
+			"orb",
+			"freezing"
+		]
+
+		self.obakeEvid = [
+			"emf",
+			"finger",
+			"orb"
+		]
+
+		self.phantomEvid = [
+			"box",
+			"finger",
+			"dots"
+		]
+
+		self.jinnEvid = [
+			"emf",
+			"finger",
+			"freezing"
+		]
+
+		self.shadeEvid = [
+			"emf",
+			"writing",
+			"freezing"
+		]
+
+		self.oniEvid = [
+			"emf",
+			"freezing",
+			"dots"
+		]
+
+		self.goryoEvid = [
+			"emf",
+			"finger",
+			"dots"
+		]
+
+		self.twinsEvid = [
+			"emf",
+			"box",
+			"freezing"
+		]
+
+		self.mimicEvid = [
+			"box",
+			"finger",
+			"freezing"
+		]
+
 
 	def getGhosts(self):
 		return [
-			self.banshee,
-			self.demon,
-			self.goryo,
-			self.hantu,
-			self.jinn,
-			self.mare,
-			self.myling,
-			self.obake,
-			self.oni,
-			self.onryo,
-			self.phantom,
-			self.polter,
-			self.raiju,
-			self.rev,
-			self.shade,
 			self.spirit,
-			self.mimic,
-			self.twins,
-			self.wraith,
+			self.polter,
+			self.mare,
+			self.demon,
 			self.yokai,
-			self.yurei
+			self.myling,
+			self.raiju,
+			self.wraith,
+			self.banshee,
+			self.rev,
+			self.yurei,
+			self.hantu,
+			self.onryo,
+			self.obake,
+			self.phantom,
+			self.jinn,
+			self.shade,
+			self.oni,
+			self.goryo,
+			self.twins,
+			self.mimic
 		]
 
 	def getInfo(self):
 		return [
-			self.bansheeInfo,
-			self.demonInfo,
-			self.goryoInfo,
-			self.hantuInfo,
-			self.jinnInfo,
-			self.mareInfo,
-			self.mylingInfo,
-			self.obakeInfo,
-			self.oniInfo,
-			self.onryoInfo,
-			self.phantomInfo,
-			self.polterInfo,
-			self.raijuInfo,
-			self.revInfo,
-			self.shadeInfo,
 			self.spiritInfo,
-			self.mimicInfo,
-			self.twinsInfo,
-			self.wraithInfo,
+			self.polterInfo,
+			self.mareInfo,
+			self.demonInfo,
 			self.yokaiInfo,
-			self.yureiInfo
+			self.mylingInfo,
+			self.raijuInfo,
+			self.wraithInfo,
+			self.bansheeInfo,
+			self.revInfo,
+			self.yureiInfo,
+			self.hantuInfo,
+			self.onryoInfo,
+			self.obakeInfo,
+			self.phantomInfo,
+			self.jinnInfo,
+			self.shadeInfo,
+			self.oniInfo,
+			self.goryoInfo,
+			self.twinsInfo,
+			self.mimicInfo
+		]
+
+	def getEvidence(self):
+		return [
+			self.spiritEvid,
+			self.polterEvid,
+			self.mareEvid,
+			self.demonEvid,
+			self.yokaiEvid,
+			self.mylingEvid,
+			self.raijuEvid,
+			self.wraithEvid,
+			self.bansheeEvid,
+			self.revEvid,
+			self.yureiEvid,
+			self.hantuEvid,
+			self.onryoEvid,
+			self.obakeEvid,
+			self.phantomEvid,
+			self.jinnEvid,
+			self.shadeEvid,
+			self.oniEvid,
+			self.goryoEvid,
+			self.twinsEvid,
+			self.mimicEvid
 		]

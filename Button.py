@@ -1,20 +1,22 @@
 import pygame
 
 class Button:
-	def __init__(self, color, x, y, text):
+	def __init__(self, color, x, y, width, height, text, bold = False):
 		self.color = color
 		self.x = x;
 		self.y = y;
-		self.width = 200
-		self.height = 130
+		self.width = width
+		self.height = height
 		self.text = text
 		self.name = text
 		self.isCrossed = False
+		self.bold = bold
 
 	def draw(self, window):
 		pygame.draw.rect(window, self.color, (self.x, self.y, self.width, self.height), 0)
 
-		font = pygame.font.SysFont('centaur', int(self.width / len(self.text))+5)
+		if (self.bold): font = pygame.font.SysFont('centaur', int(self.width / len(self.text))+10, bold = pygame.font.Font.bold)
+		else: font = pygame.font.SysFont('centaur', int(self.width / len(self.text))+10)
 		text = font.render(self.text, 1, (0, 0, 0))
 		window.blit(text, (self.x + (self.width / 2 - text.get_width() / 2), self.y + (self.height / 2 - text.get_height() / 2)))
 		if (self.isCrossed):
